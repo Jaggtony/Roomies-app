@@ -1,0 +1,53 @@
+<%- include('partials/header') -%>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+        .font-family-karla {
+            font-family: karla;
+        }
+    </style>
+<main class="bg-white font-family-karla h-screen bg-slate-100 pt-2 ">
+  <div class="w-full flex flex-wrap md:justify-center bg-slate-100 ">
+  <div class="w-full md:w-1/2 flex flex-col ">
+    
+    <div class="flex flex-row justify-center md:justify-center my-auto pt-8 md:pt-0 px-8 ">
+      <div class = "flex flex-row justify-center md:justify-center my-auto pt-8 md:pt-0 px-8 ">
+        <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+      messages.info.forEach( el => { %>
+      <div class="alert alert-info"><%= el.msg %></div>
+      <% }) %> <% } %>
+    </div>
+      <form action="/login" class="bg-slate-100 flex flex-col pt-3 md:pt-8" method="POST">
+        <div class="flex flex-col pt-4">
+          <label for="exampleInputEmail1" class="form-label font-black"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+          />
+        </div>
+        <div class="flex flex-col pt-4 pb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
+            id="exampleInputPassword1"
+            name="password"
+          />
+        </div>
+        <button type="submit" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-3 py-3 pt-6 text-base font-medium text-white hover:bg-indigo-700 md:py-3 md:px-6 md:text-lg ">Submit</button>
+        
+      </form>
+    </div>
+  </div>
+</div>
+</main>
+
+<%- include('partials/footer') -%>

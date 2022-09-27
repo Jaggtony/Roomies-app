@@ -1,0 +1,31 @@
+<%- include('partials/header') -%>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+  .font-family-karla {
+      font-family: karla;
+  }
+</style>
+<a href="/logout" class="flex flex-row-reverse mr-16 font-medium text-indigo-600 hover:text-indigo-500">Logout</a>
+  <div class="container font-family-karla bg-slate-100">
+
+    <div class="row justify-content-center mt-2">
+      <div class="row justify-content-center mt-5">
+        <a class="btn col-8 btn-primary bg-indigo-600 rounded-md border border-transparent hover:bg-indigo-700" href="/profile">Your Home Page</a>
+      </div>  
+      <ul class="row list-unstyled">
+        <% for(var i=0; i<posts.length; i++) {%>
+          <li class="col-6 justify-content-between mt-5">
+            <a >
+              <img class="img-fluid" src="<%= posts[i].image%>">
+              <h2 class ="underline"><%= posts[i].title %></h2>
+              <p><%= posts[i].caption %></p>
+            </a>
+          </li>
+        <% } %>
+        </ul>
+    </div>
+  </div>  
+<%- include('partials/footer') -%>

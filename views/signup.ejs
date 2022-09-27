@@ -1,0 +1,54 @@
+<%- include('partials/header') -%>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+        .font-family-karla {
+            font-family: karla;
+        }
+    </style>
+
+
+<main class="bg-white font-family-karla h-screen pt-2">
+  <div class="w-full flex flex-wrap bg-slate-100 ">
+  <div class="w-full mr-40 flex flex-col">
+    
+    <div class="flex flex-row justify-center md:justify-center my-auto pt- 30% md:pt-0 px-8 md:px-24 lg:px-32 ">
+      <div class = "flex flex-row justify-center md:justify-center my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32 ">
+        <% if (locals.messages.errors) { %>
+          <% messages.errors.forEach( el => { %>
+              <div class="alert alert-danger"><%= el.msg %></div>
+          <% }) %>    
+      <% } %>
+      <% if (locals.messages.info) { %>
+          <% messages.info.forEach( el => { %>
+              <div class="alert alert-info"><%= el.msg %></div>
+          <% }) %>    
+      <% } %>
+    </div>
+    <form action="/signup" class="flex flex-col  w-40 md:pt-12" method="POST">
+      <div class="flex flex-col ">
+          <label for="userName" class="form-label font-black">User Name</label>
+          <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" id="userName" name="userName">
+        </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label font-black">Email address</label>
+        <input type="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label font-black">Password</label>
+        <input type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password">
+      </div>
+      <div class="mb-3">
+          <label for="confirmPassword" class="form-label font-black">Confirm Password</label>
+          <input type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" id="confirmPassword" name="confirmPassword">
+        </div>
+      <button type="submit" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-3 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-3 md:px-10 md:text-lg">Submit</button>
+    </form>
+    </div>
+  </div>
+</div>
+</main>
+
+<%- include('partials/footer') -%>
