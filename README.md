@@ -1,4 +1,3 @@
-# Install
 
 "Roomies"
 a social app for roommates to communicate about bills, chores, ect. 
